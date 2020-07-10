@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CRUD tutorial | read</title>
+</head>
+
+<body>
+    <a href="{% url 'index' %}">go back to index</a>
+    <button><a href="{% url 'create' %}">글쓰기</a></button>
+    {% for blog in blogs %}
+    <h2>{{blog.title}}</h2>
+    <p>{{blog.pub_date}}</p>
+    <p>{{blog.body}}</p>
+    <button><a href="{% url 'update' blog.id %}">수정</a></button>
+    <button><a href="{% url 'delete' blog.id %}">삭제</a></button>
+    <hr>
+    {% endfor %}
+</body>
+
+</html>
